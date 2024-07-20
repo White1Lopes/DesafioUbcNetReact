@@ -1,0 +1,6 @@
+@DesafioUbc.Api_HostAddress = http://localhost:5087
+
+GET {{DesafioUbc.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

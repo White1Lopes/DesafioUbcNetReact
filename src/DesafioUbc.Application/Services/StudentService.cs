@@ -9,7 +9,7 @@ namespace DesafioUbc.Application.Services;
 public interface IStudentService
 {
     Response<Student?> Create(EditorStudentRequest request);
-    Response<List<Student>> GetAll();
+    PagedResponse<List<Student>> GetAll(GetAllStudentsRequest request);
     Response<Student?> GetById(long id);
     Response<Student?> Update(long id, EditorStudentRequest request);
     Response<Student?> Delete(long id);
@@ -31,11 +31,14 @@ public class StudentService : IStudentService
         return new Response<Student?>(_studentRepository.Add(_studentMapper.RequestToDomain(request)), true);
     }
 
-    public Response<List<Student>> GetAll()
+    public PagedResponse<List<Student>> GetAll(GetAllStudentsRequest request)
     {
-        var students = _studentRepository.GetAll();
+        var (students, count) = _studentRepository.GetAll(request.PageNumber, request.PageSize);
 
-        return new Response<List<Student>>(students, true);
+        return new PagedResponse<List<Student>>(
+            students,
+            count,
+            request.PageNumber, request.PageSize);
     }
 
     public Response<Student?> GetById(long id)

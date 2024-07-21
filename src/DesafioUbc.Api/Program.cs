@@ -1,4 +1,5 @@
 using DesafioUbc.Api.Startup;
+using DesafioUbc.Application.Helper;
 using DesafioUbc.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,7 @@ builder.Services.AddIoc();
 builder.Services.AddAuthorizationConfiguration(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddDocumentConfiguration();
+builder.Services.AddCrossOrigin();
 
 var app = builder.Build();
 
@@ -18,6 +20,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(Configuration.CorsPolicyName);
 
 app.UseAuthentication();
 app.UseAuthorization();

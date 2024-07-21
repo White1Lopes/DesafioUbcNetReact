@@ -1,4 +1,5 @@
-﻿using DesafioUbc.Application.Mappers;
+﻿using DesafioUbc.Application.Helper;
+using DesafioUbc.Application.Mappers;
 using DesafioUbc.Application.Requests.Student;
 using DesafioUbc.Application.Responses;
 using DesafioUbc.Application.Services;
@@ -30,9 +31,10 @@ public class StudentController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult GetAll()
+    public IActionResult GetAll([FromQuery]int pageNumber = Configuration.DefaultPageNumber,
+                                [FromQuery] int pageSize = Configuration.DefaultPageSize)
     {
-        return Ok(_studentService.GetAll());
+        return Ok(_studentService.GetAll(new GetAllStudentsRequest() { PageNumber = pageNumber, PageSize = pageSize}));
     }
 
     [HttpGet("{id:long}")]

@@ -6,7 +6,7 @@ namespace DesafioUbc.Infrastructure.Data.Repositories;
 
 public interface IStudentRepository : IRepositoryBase<Student>
 {
-    List<Student> GetAll();
+    (List<Student>, int) GetAll(int pageNumber, int pageSize);
 }
 
 public class StudentRepository : RepositoryBase<Student>, IStudentRepository
@@ -15,8 +15,19 @@ public class StudentRepository : RepositoryBase<Student>, IStudentRepository
     {
     }
 
-    public List<Student> GetAll()
+    public (List<Student>, int) GetAll(int pageNumber, int pageSize)
     {
-        return _appDbContext.Students.AsNoTracking().ToList();
+        var query = _appDbContext.Students
+                             .AsNoTracking()
+                             .OrderBy(s => s.Id);
+
+        var students =  query
+                               .Skip((pageNumber - 1) * pageSize)
+                               .Take(pageSize)
+                               .ToList();
+
+        var count = query.Count();
+
+        return (students, count);
     }
 }

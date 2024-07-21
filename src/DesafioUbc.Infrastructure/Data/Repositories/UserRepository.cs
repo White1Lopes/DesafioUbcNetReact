@@ -19,5 +19,4 @@ public class UserRepository : RepositoryBase<User>, IUserRepository
     {
         return _appDbContext.User.FirstOrDefault(x => x.Username == username);
     }
-
 }

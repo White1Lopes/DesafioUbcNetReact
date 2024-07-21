@@ -19,6 +19,7 @@ public class PagedResponse<T> : Response<T>
         CurrentPage = currentPage;
         PageSize = pageSize;
     }
+
     public PagedResponse(T? data, bool isValid, string? message = null) : base(data, isValid, message)
     {
     }

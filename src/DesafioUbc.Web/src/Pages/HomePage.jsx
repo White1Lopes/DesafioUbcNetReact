@@ -18,7 +18,7 @@ const HomePage = () => {
                         A melhor plataforma escolar.
                     </p>
                     <div className="flex justify-center py-4">
-                        <img className="rounded-lg shadow-2xl w-1/3 h-1/3  mr-2" src={studentsPhoto}/>
+                        <img className="rounded-lg shadow-2xl w-1/3 h-1/3  mr-2" alt="Estudantes" src={studentsPhoto}/>
                     </div>
                     <div className="px-12 pt-6 pb-4">
                         <p className="text-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
@@ -34,7 +34,8 @@ const HomePage = () => {
                         </Link>
                     </div>
                     <div className="flex justify-center py-4">
-                        <img className="rounded-lg shadow-2xl w-1/3 h-1/3  mr-2" src={successPersonPhoto}/>
+                        <img className="rounded-lg shadow-2xl w-1/3 h-1/3  mr-2" alt="Pessoa comemorando"
+                             src={successPersonPhoto}/>
                     </div>
                     <div className="px-12 pt-6 pb-4">
                         <p className="text-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">

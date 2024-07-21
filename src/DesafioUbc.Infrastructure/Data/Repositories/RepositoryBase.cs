@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DesafioUbc.Infrastructure.Data.Repositories;
 
-public abstract class RepositoryBase<T> : IRepositoryBase<T> where T: BaseEntity
+public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : BaseEntity
 {
     protected readonly AppDbContext _appDbContext;
 

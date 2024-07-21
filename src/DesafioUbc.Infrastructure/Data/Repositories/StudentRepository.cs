@@ -18,13 +18,13 @@ public class StudentRepository : RepositoryBase<Student>, IStudentRepository
     public (List<Student>, int) GetAll(int pageNumber, int pageSize)
     {
         var query = _appDbContext.Students
-                             .AsNoTracking()
-                             .OrderBy(s => s.Id);
+                                 .AsNoTracking()
+                                 .OrderBy(s => s.Id);
 
-        var students =  query
-                               .Skip((pageNumber - 1) * pageSize)
-                               .Take(pageSize)
-                               .ToList();
+        var students = query
+                       .Skip((pageNumber - 1) * pageSize)
+                       .Take(pageSize)
+                       .ToList();
 
         var count = query.Count();
 

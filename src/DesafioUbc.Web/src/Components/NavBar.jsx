@@ -1,5 +1,5 @@
 import {NavLink} from 'react-router-dom';
-import {CiLogin} from "react-icons/ci";
+import {CiLogin, CiLogout} from "react-icons/ci";
 import {FaHome} from "react-icons/fa";
 import logo from '../assets/student.png'
 
@@ -27,7 +27,7 @@ const NavBar = ({isAuthenticated, logout}) => {
                                 </NavLink>
                                 {isAuthenticated
                                     ? <NavLink to='/' className={linkClass}>
-                                        <CiLogin onClick={logout}/>
+                                        <CiLogout onClick={logout}/>
                                     </NavLink>
                                     : <NavLink to='/login' className={linkClass}>
                                         <CiLogin/>

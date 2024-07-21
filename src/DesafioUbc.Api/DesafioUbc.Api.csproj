@@ -7,19 +7,19 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="CsvHelper" Version="33.0.1" />
-        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.32" />
+        <PackageReference Include="CsvHelper" Version="33.0.1"/>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.32"/>
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
-        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.36.0" />
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.36.0"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\DesafioUbc.Application\DesafioUbc.Application.csproj" />
+        <ProjectReference Include="..\DesafioUbc.Application\DesafioUbc.Application.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="Seed\studentsSeed.csv" />
-      <EmbeddedResource Include="Seed\studentsSeed.csv" />
+        <None Remove="Seed\studentsSeed.csv"/>
+        <EmbeddedResource Include="Seed\studentsSeed.csv"/>
     </ItemGroup>
 
 </Project>

@@ -47,7 +47,7 @@ public class UserService : IUserService
         var claims = new[]
         {
             new Claim(JwtRegisteredClaimNames.UniqueName, user.Username),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(authKey));
@@ -56,7 +56,7 @@ public class UserService : IUserService
 
         var expiration = DateTime.UtcNow.AddHours(2);
 
-        JwtSecurityToken token = new(issuer: null, audience: null, claims: claims, expires: expiration,
+        JwtSecurityToken token = new(null, null, claims, expires: expiration,
             signingCredentials: creds);
 
         return new TokenResponse

@@ -14,7 +14,7 @@ const LoginPage = () => {
         e.preventDefault();
         const result = await login(username, password);
 
-        if(result) {
+        if (result) {
             toast.success("Usuário logado com sucesso!");
 
             return navigate('/');

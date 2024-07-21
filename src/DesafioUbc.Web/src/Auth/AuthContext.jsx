@@ -1,13 +1,15 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, {createContext, useContext, useState, useEffect} from 'react';
 import axios from 'axios';
 
 const AuthContext = createContext({
     isAuthenticated: false,
-    login: () => {},
-    logout: () => {},
+    login: () => {
+    },
+    logout: () => {
+    },
 });
 
-export const AuthProvider = ({ children }) => {
+export const AuthProvider = ({children}) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     useEffect(() => {
@@ -19,7 +21,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (username, password) => {
         try {
-            const response = await axios.post('http://localhost:5087/api/auth/login', { username, password });
+            const response = await axios.post('http://localhost:5087/api/auth/login', {username, password});
             localStorage.setItem('authToken', response.data.data.token);
             setIsAuthenticated(true);
             return true;
@@ -35,7 +37,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+        <AuthContext.Provider value={{isAuthenticated, login, logout}}>
             {children}
         </AuthContext.Provider>
     );

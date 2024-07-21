@@ -15,10 +15,7 @@ public static class SeedDb
             var students = CsvSeeder.GetStudentsFromCsv("Seed/studentsSeed.csv");
 
             var id = 1;
-            foreach (var student in students)
-            {
-                student.Id = id++;
-            }
+            foreach (var student in students) student.Id = id++;
 
             context.Students.AddRange(students);
             context.SaveChanges();

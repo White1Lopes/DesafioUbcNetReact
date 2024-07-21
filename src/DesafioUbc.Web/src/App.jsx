@@ -5,6 +5,9 @@ import NotFoundPage from "./Pages/NotFoundPage.jsx";
 import LoginPage from "./Pages/LoginPage.jsx";
 import {AuthProvider} from "./Auth/AuthContext.jsx";
 import StudentsPage from "./Pages/StudentsPage.jsx";
+import CreateStudentPage from "./Pages/CreateStudentPage.jsx";
+import EditStudentPage from "./Pages/EditStudentPage.jsx";
+import StudentPage from "./Pages/StudentPage.jsx";
 
 const App = () => {
 
@@ -13,7 +16,10 @@ const App = () => {
             <Route path='/' element={<MainLayout/>}>
                 <Route index element={<HomePage/>}/>
                 <Route path="/login" element={<LoginPage/>}/>
-                <Route path="/students" element={<StudentsPage />} />
+                <Route path="/students" element={<StudentsPage/>}/>
+                <Route path="/students/add" element={<CreateStudentPage/>}/>
+                <Route path="/students/edit/:id" element={<EditStudentPage/>}/>
+                <Route path="/students/:id" element={<StudentPage/>}/>
                 <Route path='*' element={<NotFoundPage/>}/>
             </Route>
         )
@@ -21,7 +27,7 @@ const App = () => {
 
     return (
         <AuthProvider>
-            <RouterProvider router={router} />
+            <RouterProvider router={router}/>
         </AuthProvider>
     );
 };

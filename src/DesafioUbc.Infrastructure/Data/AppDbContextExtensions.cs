@@ -7,9 +7,6 @@ public static class AppDbContextExtensions
 {
     public static void AddApplicationDbContext(this IServiceCollection services)
     {
-        services.AddDbContext<AppDbContext>(o =>
-        {
-            o.UseInMemoryDatabase("UBC");
-        });
+        services.AddDbContext<AppDbContext>(o => { o.UseInMemoryDatabase("UBC"); });
     }
 }

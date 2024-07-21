@@ -4,15 +4,14 @@ namespace DesafioUbc.Api.Startup;
 
 public static class CorsConfiguration
 {
-        public static void AddCrossOrigin(this IServiceCollection serviceCollection)
+    public static void AddCrossOrigin(this IServiceCollection serviceCollection)
+    {
+        serviceCollection.AddCors(policy =>
         {
-            serviceCollection.AddCors(policy =>
-            {
-                policy.AddPolicy(Configuration.CorsPolicyName, builder => builder
+            policy.AddPolicy(Configuration.CorsPolicyName, builder => builder
                                                                       .AllowAnyOrigin()
                                                                       .AllowAnyHeader()
                                                                       .AllowAnyMethod());
-            });
-        }
-
+        });
+    }
 }

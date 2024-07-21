@@ -23,18 +23,18 @@ public class StudentController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Create([FromBody]EditorStudentRequest request)
+    public IActionResult Create([FromBody] EditorStudentRequest request)
     {
         var response = _studentService.Create(request);
 
-        return Created($"/api/students/{response?.Data?.Id}",response);
+        return Created($"/api/students/{response?.Data?.Id}", response);
     }
 
     [HttpGet]
-    public IActionResult GetAll([FromQuery]int pageNumber = Configuration.DefaultPageNumber,
+    public IActionResult GetAll([FromQuery] int pageNumber = Configuration.DefaultPageNumber,
                                 [FromQuery] int pageSize = Configuration.DefaultPageSize)
     {
-        return Ok(_studentService.GetAll(new GetAllStudentsRequest() { PageNumber = pageNumber, PageSize = pageSize}));
+        return Ok(_studentService.GetAll(new GetAllStudentsRequest() { PageNumber = pageNumber, PageSize = pageSize }));
     }
 
     [HttpGet("{id:long}")]
@@ -48,7 +48,7 @@ public class StudentController : ControllerBase
     }
 
     [HttpPut("{id:long}")]
-    public IActionResult Update(long id, [FromBody]EditorStudentRequest request)
+    public IActionResult Update(long id, [FromBody] EditorStudentRequest request)
     {
         var response = _studentService.Update(id, request);
 

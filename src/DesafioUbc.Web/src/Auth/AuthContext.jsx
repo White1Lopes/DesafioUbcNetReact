@@ -22,8 +22,10 @@ export const AuthProvider = ({ children }) => {
             const response = await axios.post('http://localhost:5087/api/auth/login', { username, password });
             localStorage.setItem('authToken', response.data.data.token);
             setIsAuthenticated(true);
+            return true;
         } catch (error) {
             console.error('Erro durante o login', error);
+            return false;
         }
     };
 

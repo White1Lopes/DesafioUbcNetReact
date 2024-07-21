@@ -4,6 +4,7 @@ import MainLayout from "./Layouts/MainLayout.jsx";
 import NotFoundPage from "./Pages/NotFoundPage.jsx";
 import LoginPage from "./Pages/LoginPage.jsx";
 import {AuthProvider} from "./Auth/AuthContext.jsx";
+import StudentsPage from "./Pages/StudentsPage.jsx";
 
 const App = () => {
 
@@ -12,6 +13,7 @@ const App = () => {
             <Route path='/' element={<MainLayout/>}>
                 <Route index element={<HomePage/>}/>
                 <Route path="/login" element={<LoginPage/>}/>
+                <Route path="/students" element={<StudentsPage />} />
                 <Route path='*' element={<NotFoundPage/>}/>
             </Route>
         )

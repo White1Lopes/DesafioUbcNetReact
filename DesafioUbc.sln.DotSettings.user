@@ -1,0 +1,8 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5a26b2f9_002Df04d_002D49f6_002D9f30_002D09e0f9ef3fdc/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetById_ReturnsOkResult_WhenStudentExists" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::CC863BCE-E726-40DA-B270-573C40A8061B::net6.0::DesafioUbc.Api.Tests.StudentControllerTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::CC863BCE-E726-40DA-B270-573C40A8061B::net6.0::DesafioUbc.Api.Tests.UserControllerTests.Login_ReturnsOkResult_WhenLoginIsSuccessful&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::CC863BCE-E726-40DA-B270-573C40A8061B::net6.0::DesafioUbc.Api.Tests.UserControllerTests.Login_ReturnsBadRequest_WhenLoginFails&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

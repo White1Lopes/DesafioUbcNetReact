@@ -7,5 +7,7 @@
     &lt;TestId&gt;xUnit::DD38DE81-22D1-4306-9634-2E455D1A0C1D::net6.0::DesafioUbc.Application.Tests.StudentServiceTests&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::DD38DE81-22D1-4306-9634-2E455D1A0C1D::net6.0::DesafioUbc.Application.Tests.UserServiceTests.Login_ReturnsToken_WhenSuccess&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::DD38DE81-22D1-4306-9634-2E455D1A0C1D::net6.0::DesafioUbc.Application.Tests.UserServiceTests.Login_ReturnsNull_WhenFailure&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F8A2461B-21F0-41DA-B28C-67A436E89899::net6.0::DesafioUbc.Infrastructure.Tests.StudentRepositoryTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F8A2461B-21F0-41DA-B28C-67A436E89899::net6.0::DesafioUbc.Infrastructure.Tests.UserRepositoryTests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

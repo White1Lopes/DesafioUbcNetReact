@@ -33,6 +33,13 @@ Para acessar a documentação da API via Swagger, acesse:
   http://localhost:5087
 ````
 
+Para o acesso aos endpoints que necessitam de autorização basta passar os seguintes dados:
+
+````
+Username:admin
+Password:admin
+````
+
 ### Rodando os testes
 
 Navegue até o diretório teste da API e execute-a com o comando `dotnet test`:
@@ -61,6 +68,13 @@ Navegue até o diretório da aplicação React e siga os passos abaixo:
 A aplicação React estará disponível no localhost na porta 5145:
 ````shell
   http://localhost:5145
+````
+
+Para o acesso na página de login basta passar os seguintes dados:
+
+````
+Username:admin
+Password:admin
 ````
 
 ## Explicações sobre a arquitetura do projeto

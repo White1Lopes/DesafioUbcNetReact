@@ -4,5 +4,8 @@
     &lt;TestId&gt;xUnit::CC863BCE-E726-40DA-B270-573C40A8061B::net6.0::DesafioUbc.Api.Tests.StudentControllerTests&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::CC863BCE-E726-40DA-B270-573C40A8061B::net6.0::DesafioUbc.Api.Tests.UserControllerTests.Login_ReturnsOkResult_WhenLoginIsSuccessful&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::CC863BCE-E726-40DA-B270-573C40A8061B::net6.0::DesafioUbc.Api.Tests.UserControllerTests.Login_ReturnsBadRequest_WhenLoginFails&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::DD38DE81-22D1-4306-9634-2E455D1A0C1D::net6.0::DesafioUbc.Application.Tests.StudentServiceTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::DD38DE81-22D1-4306-9634-2E455D1A0C1D::net6.0::DesafioUbc.Application.Tests.UserServiceTests.Login_ReturnsToken_WhenSuccess&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::DD38DE81-22D1-4306-9634-2E455D1A0C1D::net6.0::DesafioUbc.Application.Tests.UserServiceTests.Login_ReturnsNull_WhenFailure&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

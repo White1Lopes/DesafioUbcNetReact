@@ -10,21 +10,27 @@ namespace DesafioUbc.Api.Tests;
 
 public class StudentControllerTests
 {
+    private readonly Mock<IStudentService> _mockStudentService;
+    private readonly StudentController _studentController;
+
+    public StudentControllerTests()
+    {
+        _mockStudentService = new Mock<IStudentService>();
+        _studentController = new StudentController(_mockStudentService.Object);
+    }
+
     [Fact]
     public void GetById_ReturnsOkResult_WhenStudentExists()
     {
         // Arrange
-        var mockService      = new Mock<IStudentService>();
         var studentId        = 1L;
         var expectedStudent  = new Student { Id = studentId };
         var expectedResponse = new Response<Student?>(expectedStudent);
 
-        mockService.Setup(service => service.GetById(studentId)).Returns(expectedResponse);
-
-        var controller = new StudentController(mockService.Object);
+        _mockStudentService.Setup(service => service.GetById(studentId)).Returns(expectedResponse);
 
         // Act
-        var result = controller.GetById(studentId);
+        var result = _studentController.GetById(studentId);
 
         // Assert
         var okResult         = Assert.IsType<OkObjectResult>(result);
@@ -36,16 +42,13 @@ public class StudentControllerTests
     public void GetById_ReturnsNotFoundResult_WhenStudentDoesNotExist()
     {
         // Arrange
-        var mockService     = new Mock<IStudentService>();
         var studentId       = 1L;
         var serviceResponse = new Response<Student?>(null);
 
-        mockService.Setup(service => service.GetById(studentId)).Returns(serviceResponse);
-
-        var controller = new StudentController(mockService.Object);
+        _mockStudentService.Setup(service => service.GetById(studentId)).Returns(serviceResponse);
 
         // Act
-        var result = controller.GetById(studentId);
+        var result = _studentController.GetById(studentId);
 
         // Assert
         var notFoundResult   = Assert.IsType<NotFoundObjectResult>(result);
@@ -57,17 +60,14 @@ public class StudentControllerTests
     public void Create_ReturnsCreated()
     {
         //Arrange
-        var mockService     = new Mock<IStudentService>();
         var studentRequest         = new EditorStudentRequest() { Nome = "Test" };
         var expectedStudent = new Student() { Nome = "Test" };
         var serviceResponse = new Response<Student?>(expectedStudent);
 
-        mockService.Setup(service => service.Create(studentRequest)).Returns(serviceResponse);
-
-        var controller = new StudentController(mockService.Object);
+        _mockStudentService.Setup(service => service.Create(studentRequest)).Returns(serviceResponse);
 
         // Act
-        var result = controller.Create(studentRequest);
+        var result = _studentController.Create(studentRequest);
 
         // Assert
         var createdResult    = Assert.IsType<CreatedResult>(result);
@@ -79,20 +79,17 @@ public class StudentControllerTests
     public void GetAll_ReturnsOkResult()
     {
         // Arrange
-        var mockService      = new Mock<IStudentService>();
         var getAllRequest    = new GetAllStudentsRequest() { PageNumber = 1, PageSize = 25};
         var expectedList     = new List<Student> { new () { Id = 1 } };
         var expectedResponse = new PagedResponse<List<Student>>(expectedList, 1, 1, 25);
 
-        mockService.Setup(service =>
-                       service.GetAll(It.Is<GetAllStudentsRequest>(r => r.PageNumber == 1 && r.PageSize == 25)))
-                   .Returns(expectedResponse);
+        _mockStudentService.Setup(service =>
+                               service.GetAll(It.Is<GetAllStudentsRequest>(r => r.PageNumber == 1 && r.PageSize == 25)))
+                           .Returns(expectedResponse);
 
-
-        var controller = new StudentController(mockService.Object);
 
         // Act
-        var result = controller.GetAll(getAllRequest.PageNumber, getAllRequest.PageSize);
+        var result = _studentController.GetAll(getAllRequest.PageNumber, getAllRequest.PageSize);
 
         // Assert
         var okResult         = Assert.IsType<OkObjectResult>(result);
@@ -104,18 +101,15 @@ public class StudentControllerTests
     public void UpdateStudent_ReturnsOkResult_WhenStudentExists()
     {
         // Arrange
-        var mockService      = new Mock<IStudentService>();
         var studentId        = 1L;
         var expectedStudent  = new Student { Id = studentId };
         var updatedRequest   = new EditorStudentRequest() { Nome = "Test" };
         var expectedResponse = new Response<Student?>(expectedStudent);
 
-        mockService.Setup(service => service.Update(studentId, updatedRequest)).Returns(expectedResponse);
-
-        var controller = new StudentController(mockService.Object);
+        _mockStudentService.Setup(service => service.Update(studentId, updatedRequest)).Returns(expectedResponse);
 
         // Act
-        var result = controller.Update(studentId, updatedRequest);
+        var result = _studentController.Update(studentId, updatedRequest);
 
         // Assert
         var okResult         = Assert.IsType<OkObjectResult>(result);
@@ -127,17 +121,14 @@ public class StudentControllerTests
     public void UpdateStudent_ReturnsNotFoundResult_WhenStudentDoesNotExists()
     {
         // Arrange
-        var mockService      = new Mock<IStudentService>();
         var studentId        = 1L;
         var updatedRequest   = new EditorStudentRequest() { Nome = "Test" };
         var expectedResponse = new Response<Student?>(null);
 
-        mockService.Setup(service => service.Update(studentId, updatedRequest)).Returns(expectedResponse);
-
-        var controller = new StudentController(mockService.Object);
+        _mockStudentService.Setup(service => service.Update(studentId, updatedRequest)).Returns(expectedResponse);
 
         // Act
-        var result = controller.Update(studentId, updatedRequest);
+        var result = _studentController.Update(studentId, updatedRequest);
 
         // Assert
         var notFoundResult        = Assert.IsType<NotFoundObjectResult>(result);
@@ -149,17 +140,14 @@ public class StudentControllerTests
     public void DeleteStudent_ReturnsOkResult_WhenStudentExists()
     {
         // Arrange
-        var mockService      = new Mock<IStudentService>();
         var studentId        = 1L;
         var expectedStudent  = new Student { Id = studentId };
         var expectedResponse = new Response<Student?>(expectedStudent);
 
-        mockService.Setup(service => service.Delete(studentId)).Returns(expectedResponse);
-
-        var controller = new StudentController(mockService.Object);
+        _mockStudentService.Setup(service => service.Delete(studentId)).Returns(expectedResponse);
 
         // Act
-        var result = controller.Delete(studentId);
+        var result = _studentController.Delete(studentId);
 
         // Assert
         var okResult         = Assert.IsType<OkObjectResult>(result);
@@ -171,16 +159,13 @@ public class StudentControllerTests
     public void DeleteStudent_ReturnsNotFoundResult_WhenStudentDoesNotExists()
     {
         // Arrange
-        var mockService      = new Mock<IStudentService>();
         var studentId        = 1L;
         var expectedResponse = new Response<Student?>(null);
 
-        mockService.Setup(service => service.Delete(studentId)).Returns(expectedResponse);
-
-        var controller = new StudentController(mockService.Object);
+        _mockStudentService.Setup(service => service.Delete(studentId)).Returns(expectedResponse);
 
         // Act
-        var result = controller.Delete(studentId);
+        var result = _studentController.Delete(studentId);
 
         // Assert
         var notFoundResult   = Assert.IsType<NotFoundObjectResult>(result);

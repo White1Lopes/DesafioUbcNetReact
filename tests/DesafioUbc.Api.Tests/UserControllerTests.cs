@@ -24,7 +24,7 @@ public class UserControllerTests
     }
 
     [Fact]
-    public void Login_ReturnsOkResult_WhenLoginIsSuccessful()
+    public void Login_ShouldReturnsOkResult_WhenLoginIsSuccessful()
     {
         // Arrange
         var loginRequest      = new LoginRequest { Username = "test", Password = "password" };
@@ -43,7 +43,7 @@ public class UserControllerTests
     }
 
     [Fact]
-    public void Login_ReturnsBadRequest_WhenLoginFails()
+    public void Login_ShouldReturnsBadRequest_WhenLoginFails()
     {
         // Arrange
         var loginRequest = new LoginRequest { Username = "test", Password = "wrong_password" };

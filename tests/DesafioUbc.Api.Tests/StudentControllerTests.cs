@@ -20,7 +20,7 @@ public class StudentControllerTests
     }
 
     [Fact]
-    public void GetById_ReturnsOkResult_WhenStudentExists()
+    public void GetById_ShouldReturnsOkResult_WhenStudentExists()
     {
         // Arrange
         var studentId        = 1L;
@@ -39,7 +39,7 @@ public class StudentControllerTests
     }
 
     [Fact]
-    public void GetById_ReturnsNotFoundResult_WhenStudentDoesNotExist()
+    public void GetById_ShouldReturnsNotFoundResult_WhenStudentDoesNotExist()
     {
         // Arrange
         var studentId       = 1L;
@@ -57,7 +57,7 @@ public class StudentControllerTests
     }
 
     [Fact]
-    public void Create_ReturnsCreated()
+    public void Create_ShouldReturnsCreated()
     {
         //Arrange
         var studentRequest         = new EditorStudentRequest() { Nome = "Test" };
@@ -76,7 +76,7 @@ public class StudentControllerTests
     }
 
     [Fact]
-    public void GetAll_ReturnsOkResult()
+    public void GetAll_ShouldReturnsOkResult()
     {
         // Arrange
         var getAllRequest    = new GetAllStudentsRequest() { PageNumber = 1, PageSize = 25};
@@ -98,7 +98,7 @@ public class StudentControllerTests
     }
 
     [Fact]
-    public void UpdateStudent_ReturnsOkResult_WhenStudentExists()
+    public void UpdateStudent_ShouldReturnsOkResult_WhenStudentExists()
     {
         // Arrange
         var studentId        = 1L;
@@ -118,7 +118,7 @@ public class StudentControllerTests
     }
 
     [Fact]
-    public void UpdateStudent_ReturnsNotFoundResult_WhenStudentDoesNotExists()
+    public void UpdateStudent_ShouldReturnsNotFoundResult_WhenStudentDoesNotExists()
     {
         // Arrange
         var studentId        = 1L;
@@ -137,7 +137,7 @@ public class StudentControllerTests
     }
 
     [Fact]
-    public void DeleteStudent_ReturnsOkResult_WhenStudentExists()
+    public void DeleteStudent_ShouldReturnsOkResult_WhenStudentExists()
     {
         // Arrange
         var studentId        = 1L;
@@ -156,7 +156,7 @@ public class StudentControllerTests
     }
 
     [Fact]
-    public void DeleteStudent_ReturnsNotFoundResult_WhenStudentDoesNotExists()
+    public void DeleteStudent_ShouldReturnsNotFoundResult_WhenStudentDoesNotExists()
     {
         // Arrange
         var studentId        = 1L;

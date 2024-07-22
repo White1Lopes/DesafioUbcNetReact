@@ -46,9 +46,12 @@ const HomePage = () => {
                         </p>
                     </div>
                     <div className="text-center pb-4">
-                        <Link className="rounded-lg  px-5 py-2 bg-primary-500 " to="/contato">
+                        <a
+                            className="rounded-lg px-5 py-2 bg-primary-500"
+                            href="mailto:marketing@ubcstudents.com?subject=Contato"
+                        >
                             Contato
-                        </Link>
+                        </a>
                     </div>
                 </section>
             )}
